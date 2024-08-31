@@ -10,6 +10,9 @@ docker pull postgres:latest
 docker pull redis:latest
 docker pull nextcloud:latest
 
+# TEMPORARY WORKAROUND: https://github.com/nextcloud/docker/issues/2283
+docker pull nextcloud:29.0.4
+
 # Read path for persistent storage from command line arguments.
 VOLUME_PATH=${1}
 
@@ -74,4 +77,4 @@ docker run -d \
     -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
     -e REDIS_HOST=redis \
     -e REDIS_HOST_PASSWORD=${REDIS_HOST_PASSWORD} \
-    nextcloud:latest
+    nextcloud:29.0.4
